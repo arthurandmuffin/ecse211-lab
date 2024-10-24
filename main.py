@@ -29,8 +29,6 @@ def flute():
             sound.Sound(duration=.1, pitch=PITCHES[distance], volume=85).play()
             print(PITCHES[distance])
         sleep(1)
-    if KILL_SWITCH.is_pressed():
-        MOTOR.set_power(0)
 
 
 def drum():
@@ -47,6 +45,7 @@ def program():
         while not KILL_SWITCH.is_pressed():
             drum()
             flute()
+        MOTOR.set_power(0)
     finally:
         reset_brick()
         exit()
